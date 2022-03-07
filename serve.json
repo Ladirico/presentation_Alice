@@ -1,0 +1,19 @@
+{
+  "startDevServer": [
+    {
+      "name": "npx json-server --watch serve.json --port 3003"
+    }
+  ],
+  "info": [
+    {
+      "nome": "Alice",
+      "cognome": "Di Rico"
+    }
+  ],
+  "descrizioni": [
+    {
+      "scuola": "Licreo Statte G. Marconi",
+      "universita": "Università degli studio G. D'Annunzio, Chieti-Pescara"
+    }
+  ]
+}
