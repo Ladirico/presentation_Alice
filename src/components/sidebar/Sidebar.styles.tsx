@@ -8,6 +8,8 @@ export const SidebarWrapper = styled.div`
   width: ${(props: InterfaceSidebarWrapper) =>
     props.smartView ? (props.showSidebar ? "80%" : "0%") : "30%"};
   height: 100%;
-  background-color: green;
-  animation: 2s ${bounceAnimation};
+  background-color: ${(props: InterfaceSidebarWrapper) => props.bgColor};
+  animation: 2s
+    ${(props: InterfaceSidebarWrapper) =>
+      props.showSidebar ? bounceAnimation : ""};
 `;

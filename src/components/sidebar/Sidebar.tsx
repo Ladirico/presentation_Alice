@@ -3,10 +3,16 @@ import { SmartphoneView } from "../../App";
 import { SidebarWrapper } from "./Sidebar.styles";
 
 const Sidebar = () => {
-  //commento di prova
-  const context = useContext(SmartphoneView);
-  const showSidebar = context?.context.openSidebar;
-  const smartView = context?.context.smartView;
-  return <SidebarWrapper showSidebar={showSidebar} smartView={smartView} />;
+  const starterContext = useContext(SmartphoneView);
+  const { context } = starterContext;
+  const { smartView, openSidebar, themePink, themeColored, themeChoose } =
+    context;
+  return (
+    <SidebarWrapper
+      showSidebar={openSidebar}
+      smartView={smartView}
+      bgColor={themeChoose ? themePink?.c2 : themeColored?.c2}
+    />
+  );
 };
 export default Sidebar;

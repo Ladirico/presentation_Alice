@@ -6,7 +6,7 @@ export interface InterfaceButton {
 
 export interface InterfaceBasicButton {
   types: boolean;
-  bgColor: string;
+  bgColor?: string;
 }
 
 export interface InterfaceNavbar {
@@ -16,6 +16,16 @@ export interface InterfaceNavbar {
 export interface InterfaceSmartphoneView {
   smartView: boolean;
   openSidebar?: boolean;
+  themePink: InterfaceTheme;
+  themeColored: InterfaceTheme;
+  themeChoose: boolean;
+}
+
+export interface InterfaceTheme {
+  c1: string;
+  c2: string;
+  c3: string;
+  c4: string;
 }
 export interface InterfaceTipo {
   context: InterfaceSmartphoneView;
@@ -24,7 +34,7 @@ export interface InterfaceTipo {
 
 export interface InterfaceSidebarWrapper {
   showSidebar?: boolean;
-
+  bgColor?: string;
   smartView?: boolean;
 }
 
@@ -33,5 +43,5 @@ export interface InterfacePageRoute {
 }
 export interface InterfaceButtonProp {
   src: string;
-  bgColor: string;
+  bgColor?: string;
 }

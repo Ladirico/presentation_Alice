@@ -3,13 +3,23 @@ import { SmartphoneView } from "../../App";
 import { PageRouteWrapper } from "./PageRoute.style";
 
 const PageRoute = () => {
-  const contextResult = useContext(SmartphoneView);
+  const starterContext = useContext(SmartphoneView);
+  const { context } = starterContext;
+  const { openSidebar, themePink, themeColored, themeChoose } = context;
   return (
     <>
-      {contextResult?.context.openSidebar ? (
-        <PageRouteWrapper>PageRouteWrapper</PageRouteWrapper>
+      {openSidebar ? (
+        <PageRouteWrapper
+          bgColor={themeChoose ? themePink?.c4 : themeColored?.c4}
+        >
+          PageRouteWrapper
+        </PageRouteWrapper>
       ) : (
-        <PageRouteWrapper>PageRouteWrapper</PageRouteWrapper>
+        <PageRouteWrapper
+          bgColor={themeChoose ? themePink?.c4 : themeColored?.c4}
+        >
+          PageRouteWrapper
+        </PageRouteWrapper>
       )}
     </>
   );

@@ -3,7 +3,7 @@ import { InterfaceBasicButton } from "../../types/types";
 
 export const BasicButton = styled.button`
   width: 10%;
-  height: 70%;
+  height: 50%;
   margin: 1%;
   cursor: pointer;
   text-decoration: ${(props: InterfaceBasicButton) =>

@@ -4,15 +4,26 @@ import Button from "../button/button";
 import { NavbarWrapper } from "./Navbar.styles";
 
 const Navbar = () => {
-  const contextResult = useContext(SmartphoneView);
-  const smartView = contextResult?.context.smartView;
+  const starterContext = useContext(SmartphoneView);
+  const { context, setContext } = starterContext;
+  const { smartView, openSidebar, themePink, themeColored, themeChoose } =
+    context;
   return (
-    <NavbarWrapper smartView={smartView}>
+    <NavbarWrapper
+      smartView={smartView}
+      bgColor={themeChoose ? themePink?.c3 : themeColored?.c3}
+    >
       {!smartView ? (
         <>
           <Button funcOnClick={() => console.log("dioca")} message="weeee" />
           <Button
-            funcOnClick={() => console.log("other")}
+            funcOnClick={() =>
+              setContext(
+                themeChoose
+                  ? { ...context, themeChoose: false }
+                  : { ...context, themeChoose: true }
+              )
+            }
             message="other"
             icon="back"
           />
@@ -21,15 +32,14 @@ const Navbar = () => {
         <>
           <Button
             funcOnClick={() =>
-              contextResult?.setContext(
-                contextResult.context.openSidebar
+              setContext(
+                openSidebar
                   ? {
-                      ...contextResult?.context,
-
+                      ...context,
                       openSidebar: false,
                     }
                   : {
-                      ...contextResult?.context,
+                      ...context,
                       openSidebar: true,
                     }
               )
