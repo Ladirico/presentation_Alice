@@ -24,6 +24,7 @@ export interface InterfaceTipo {
 
 export interface InterfaceSidebarWrapper {
   showSidebar?: boolean;
+
   smartView?: boolean;
 }
 

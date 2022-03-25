@@ -26,6 +26,7 @@ const Navbar = () => {
                 contextResult.context.openSidebar
                   ? {
                       ...contextResult?.context,
+
                       openSidebar: false,
                     }
                   : {
