@@ -6,7 +6,6 @@ import { NavbarWrapper } from "./Navbar.styles";
 const Navbar = () => {
   const contextResult = useContext(SmartphoneView);
   const smartView = contextResult?.context.smartView;
-  console.log(contextResult);
   return (
     <NavbarWrapper smartView={smartView}>
       {!smartView ? (
