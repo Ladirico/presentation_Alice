@@ -1,12 +1,18 @@
+import { useContext } from "react";
+import { SmartphoneView } from "../../App";
 import Navbar from "../navbar/Navbar";
+import PageRoute from "../pageRoute/PageRoute";
 import Sidebar from "../sidebar/Sidebar";
-import { SinglePageWrapper } from "./SinglePage.styles";
+import { SinglePageWrapper, UnderPartWrapper } from "./SinglePage.styles";
 
 const SinglePage = () => {
   return (
     <SinglePageWrapper>
-      <Sidebar />
       <Navbar />
+      <UnderPartWrapper>
+        <Sidebar />
+        <PageRoute />
+      </UnderPartWrapper>
     </SinglePageWrapper>
   );
 };
