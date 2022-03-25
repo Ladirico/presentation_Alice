@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { SmartphoneView } from "../../App";
 import Navbar from "../navbar/Navbar";
 import PageRoute from "../pageRoute/PageRoute";
 import Sidebar from "../sidebar/Sidebar";
