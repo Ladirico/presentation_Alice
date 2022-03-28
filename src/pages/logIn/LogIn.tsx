@@ -81,19 +81,25 @@ const LogIn = () => {
       ) : null}
       <br />
       <br />
-      <label htmlFor="age">Insert Age</label>
-      <input
-        id="age"
-        name="age"
-        type="number"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      {formik.touched.age && formik.errors.age ? (
-        <div>{formik.errors.age}</div>
-      ) : null}
-      <br />
-      <br />
+      {formik.values.firstName ? (
+        <>
+          <label htmlFor="age">Insert Age</label>
+          <input
+            id="age"
+            name="age"
+            type="number"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.age && formik.errors.age ? (
+            <div>{formik.errors.age}</div>
+          ) : null}
+          <br />
+          <br />
+        </>
+      ) : (
+        <></>
+      )}
 
       <button type="submit">Submit</button>
     </form>
