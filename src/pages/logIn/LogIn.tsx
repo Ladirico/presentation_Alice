@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import { useContext } from "react";
-import { validateLocaleAndSetLanguage } from "typescript";
 import * as Yup from "yup";
 import { SmartphoneView } from "../../App";
 const LogIn = () => {

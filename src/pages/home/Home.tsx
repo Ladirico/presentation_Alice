@@ -5,8 +5,7 @@ import Button from "../../components/button/button";
 const Home = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
-  const { themePink, themeColored, themeChoose, firstName, lastName, email } =
-    context;
+  const { firstName, lastName, email } = context;
   console.log(context);
 
   return (

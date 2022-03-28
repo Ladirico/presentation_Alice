@@ -6,7 +6,7 @@ import { PageRouteWrapper } from "./PageRoute.style";
 
 const PageRoute = () => {
   const starterContext = useContext(SmartphoneView);
-  const { context, setContext } = starterContext;
+  const { context } = starterContext;
   const { themePink, themeColored, themeChoose, isLogged } = context;
 
   return (
