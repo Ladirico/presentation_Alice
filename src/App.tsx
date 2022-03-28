@@ -23,6 +23,9 @@ const App = () => {
       c4: "#9d19d1",
     },
     themeChoose: true,
+    firstName: "",
+    lastName: "",
+    email: "",
   });
 
   useEffect(() => {

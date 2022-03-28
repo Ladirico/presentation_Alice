@@ -19,8 +19,10 @@ export interface InterfaceSmartphoneView {
   themePink: InterfaceTheme;
   themeColored: InterfaceTheme;
   themeChoose: boolean;
+  firstName: string;
+  lastName: string;
+  email: string;
 }
-
 export interface InterfaceTheme {
   c1: string;
   c2: string;
