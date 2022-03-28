@@ -26,6 +26,8 @@ const App = () => {
     firstName: "",
     lastName: "",
     email: "",
+    age: 0,
+    isLogged: false,
   });
 
   useEffect(() => {

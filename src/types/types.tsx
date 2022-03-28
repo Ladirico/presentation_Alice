@@ -22,6 +22,8 @@ export interface InterfaceSmartphoneView {
   firstName: string;
   lastName: string;
   email: string;
+  age?: number;
+  isLogged: boolean;
 }
 export interface InterfaceTheme {
   c1: string;
