@@ -40,13 +40,12 @@ const LogIn = () => {
         "service_pfvk0n3",
         "template_qyqaw7e",
         {
-          to_name: formik.values.firstName + formik.values.lastName,
+          to_name: `${formik.values.firstName} ${formik.values.lastName}`,
           from_name: "Alice",
           to_email: formik.values.email,
-          message: `Benvenuto ${formik.values.firstName} ${formik.values.lastName} sei una grande testa di cazzo e per
-          ricordartelo ti abbiamo iscritto alla newsletter con la mail che ci hai
-          dato ${formik.values.email} per ricordarti ogni giorno, più volte al giorno, quanto ci
-          stai sui coglioni`,
+          message: `Benvenuto ${formik.values.firstName} ${formik.values.lastName} ti voglio dare tanti bacini e per
+          ricordartelo ti ho iscritto alla newsletter con la mail che mi hai
+          dato ${formik.values.email} per ricordarti ogni giorno, più volte al giorno, quanto tvb <3 `,
         },
         "I-W8POMgHHcLJq29c"
       );
