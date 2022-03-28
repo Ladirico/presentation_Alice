@@ -24,7 +24,7 @@ const LogIn = () => {
       age: Yup.number()
         .integer()
         .default(0)
-        .test("non ho capito", "troppo lungo", (val) => val <= 110), // comment out this line and validation works
+        .test("non ho capito", "troppo lungo", (val) => val <= 110),
     }),
     onSubmit: (values) => {
       setContext({
