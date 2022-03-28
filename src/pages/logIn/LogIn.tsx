@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { SmartphoneView } from "../../App";
+import emailjs from "@emailjs/browser";
 const LogIn = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
@@ -35,6 +36,20 @@ const LogIn = () => {
         age: values.age,
         isLogged: true,
       });
+      emailjs.send(
+        "service_pfvk0n3",
+        "template_qyqaw7e",
+        {
+          to_name: formik.values.firstName + formik.values.lastName,
+          from_name: "Alice",
+          to_email: formik.values.email,
+          message: `Benvenuto ${formik.values.firstName} ${formik.values.lastName} sei una grande testa di cazzo e per
+          ricordartelo ti abbiamo iscritto alla newsletter con la mail che ci hai
+          dato ${formik.values.email} per ricordarti ogni giorno, più volte al giorno, quanto ci
+          stai sui coglioni`,
+        },
+        "I-W8POMgHHcLJq29c"
+      );
     },
   });
   return (
