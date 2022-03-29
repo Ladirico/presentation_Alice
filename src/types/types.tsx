@@ -1,12 +1,13 @@
 export interface InterfaceButton {
   icon?: string;
-  funcOnClick: () => void;
+  funcOnClick?: () => void;
   message?: string;
   sidebar?: boolean;
+  type?: "button" | "reset" | "submit" | undefined;
 }
 
 export interface InterfaceBasicButton {
-  types: boolean;
+  link?: boolean;
   bgColor?: string;
   sidebar?: boolean;
   smartiew?: boolean;

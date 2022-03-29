@@ -18,11 +18,7 @@ const Navbar = () => {
         smartView={smartView}
         bgColor={themeChoose ? themePink?.c3 : themeColored?.c3}
       >
-        {!smartView ? (
-          <>
-            <Button funcOnClick={() => console.log("dioca")} message="weeee" />
-          </>
-        ) : (
+        {smartView ? (
           <>
             <Button
               funcOnClick={() =>
@@ -35,7 +31,7 @@ const Navbar = () => {
               icon="menu"
             />
           </>
-        )}
+        ) : null}
         <Button
           icon="switch"
           funcOnClick={() =>

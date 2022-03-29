@@ -6,25 +6,25 @@ import {
 
 export const BasicButton = styled.button`
   width: ${(props: InterfaceBasicButton) => (!props.sidebar ? "10%" : "100%")};
-  height: ${(props: InterfaceBasicButton) => (!props.sidebar ? "50%" : "auto")};
+  height: ${(props: InterfaceBasicButton) => (!props.sidebar ? "6vh" : "auto")};
   margin-top: 1%;
   margin-bottom: 1%;
   padding: ${(props) => (props.sidebar ? "5%" : "auto")};
   cursor: pointer;
   text-decoration: ${(props: InterfaceBasicButton) =>
-    !props.types ? "underline" : "none"};
-  border: ${(props: InterfaceBasicButton) => (!props.types ? "none" : "auto")};
+    props.link ? "underline" : "none"};
+  border: ${(props: InterfaceBasicButton) => (props.link ? "none" : "auto")};
   background: ${(props: InterfaceBasicButton) =>
-    !props.types ? "transparent" : props.bgColor};
-  display: ${(props: InterfaceBasicButton) => (props.types ? "flex" : "")};
-  justify-content: center;
+    props.link ? "transparent" : props.bgColor};
+  display: ${(props: InterfaceBasicButton) => (!props.link ? "flex" : "")};
+  justify-content: space-evenly;
   align-items: center;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
 export const BasicImg = styled.img`
   width: ${(props: InterfaceSidebarWrapper) =>
-    props.smartView ? "100%" : "40%"};
+    props.smartView ? "90%" : "50%"};
   height: ${(props: InterfaceSidebarWrapper) =>
-    props.smartView ? "50%" : "80%"};
+    props.smartView ? "50%" : "60%"};
 `;
