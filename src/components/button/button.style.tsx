@@ -1,10 +1,15 @@
 import styled from "styled-components";
-import { InterfaceBasicButton } from "../../types/types";
+import {
+  InterfaceBasicButton,
+  InterfaceSidebarWrapper,
+} from "../../types/types";
 
 export const BasicButton = styled.button`
-  width: 12%;
-  height: 50%;
-  margin: 1%;
+  width: ${(props: InterfaceBasicButton) => (!props.sidebar ? "10%" : "100%")};
+  height: ${(props: InterfaceBasicButton) => (!props.sidebar ? "50%" : "auto")};
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: ${(props) => (props.sidebar ? "5%" : "auto")};
   cursor: pointer;
   text-decoration: ${(props: InterfaceBasicButton) =>
     !props.types ? "underline" : "none"};
@@ -14,9 +19,12 @@ export const BasicButton = styled.button`
   display: ${(props: InterfaceBasicButton) => (props.types ? "flex" : "")};
   justify-content: center;
   align-items: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
 export const BasicImg = styled.img`
-  width: 50%;
-  height: 50%;
+  width: ${(props: InterfaceSidebarWrapper) =>
+    props.smartView ? "100%" : "40%"};
+  height: ${(props: InterfaceSidebarWrapper) =>
+    props.smartView ? "50%" : "80%"};
 `;

@@ -36,19 +36,18 @@ const LogIn = () => {
         age: values.age,
         isLogged: true,
       });
-      emailjs.send(
-        "service_pfvk0n3",
-        "template_qyqaw7e",
-        {
-          to_name: `${formik.values.firstName} ${formik.values.lastName}`,
-          from_name: "Alice",
-          to_email: formik.values.email,
-          message: `Benvenuto ${formik.values.firstName} ${formik.values.lastName} ti voglio dare tanti bacini e per
-          ricordartelo ti ho iscritto alla newsletter con la mail che mi hai
-          dato ${formik.values.email} per ricordarti ogni giorno, più volte al giorno, quanto tvb <3 `,
-        },
-        "I-W8POMgHHcLJq29c"
-      );
+      // emailjs.send(
+      //   "service_pfvk0n3",
+      //   "template_qyqaw7e",
+      //   {
+      //     to_name: `${formik.values.firstName} ${formik.values.lastName}`,
+      //     from_name: "Alice",
+      //     to_email: formik.values.email,
+      //     message: `Benvenuto ${formik.values.firstName} ${formik.values.lastName} ti ho iscritto alla newsletter con la mail che mi hai
+      //     dato ${formik.values.email} per ricordarti ogni giorno, più volte al giorno, che ci vediamo il nuovo 7 dicembre aka il 2 aprile`,
+      //   },
+      //   "I-W8POMgHHcLJq29c"
+      // );
     },
   });
   return (
@@ -114,7 +113,6 @@ const LogIn = () => {
       ) : (
         <></>
       )}
-
       <button type="submit">Submit</button>
     </form>
   );

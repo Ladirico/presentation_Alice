@@ -19,7 +19,7 @@ const Home = () => {
           setContext({ ...context, isLogged: false });
         }}
         icon="back"
-        message="sloggati coglione"
+        message="sloggati"
       />
     </div>
   );

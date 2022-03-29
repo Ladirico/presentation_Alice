@@ -2,11 +2,14 @@ export interface InterfaceButton {
   icon?: string;
   funcOnClick: () => void;
   message?: string;
+  sidebar?: boolean;
 }
 
 export interface InterfaceBasicButton {
   types: boolean;
   bgColor?: string;
+  sidebar?: boolean;
+  smartiew?: boolean;
 }
 
 export interface InterfaceNavbar {

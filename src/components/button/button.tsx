@@ -4,12 +4,14 @@ import { useContext, useEffect, useState } from "react";
 
 import logo from "./../../logo.svg";
 import menu from "./../../menu.png";
+import switchOff from "./../../switchOff.png";
+import switchOn from "./../../switchOn.png";
 import { SmartphoneView } from "../../App";
 
-const Button = ({ icon, funcOnClick, message }: InterfaceButton) => {
+const Button = ({ icon, funcOnClick, message, sidebar }: InterfaceButton) => {
   const starterContext = useContext(SmartphoneView);
   const { context } = starterContext;
-  const { themePink, themeColored, themeChoose } = context;
+  const { themePink, themeColored, themeChoose, smartView } = context;
   const [buttonProp, setButtonProp] = useState<InterfaceButtonProp>({
     src: "",
     bgColor: "",
@@ -34,6 +36,11 @@ const Button = ({ icon, funcOnClick, message }: InterfaceButton) => {
           bgColor: themeChoose ? themePink?.c1 : themeColored?.c1,
         });
         break;
+      case "switch":
+        setButtonProp({
+          src: themeChoose ? switchOn : switchOff,
+        });
+        break;
       default:
         setButtonProp({
           src: logo,
@@ -44,19 +51,33 @@ const Button = ({ icon, funcOnClick, message }: InterfaceButton) => {
   return (
     <>
       {icon ? (
-        <BasicButton
-          types={true}
-          onClick={funcOnClick}
-          bgColor={buttonProp.bgColor}
-        >
-          <BasicImg src={buttonProp.src} />
-          {message}
-        </BasicButton>
+        buttonProp.src === switchOff || buttonProp.src === switchOn ? (
+          <BasicButton
+            types={false}
+            onClick={funcOnClick}
+            bgColor={buttonProp.bgColor}
+            sidebar={sidebar}
+          >
+            <BasicImg src={buttonProp.src} smartView={smartView} />
+            {message}
+          </BasicButton>
+        ) : (
+          <BasicButton
+            types={true}
+            onClick={funcOnClick}
+            bgColor={buttonProp.bgColor}
+            sidebar={sidebar}
+          >
+            <BasicImg src={buttonProp.src} smartView={smartView} />
+            {message}
+          </BasicButton>
+        )
       ) : (
         <BasicButton
           types={false}
           onClick={funcOnClick}
           bgColor={buttonProp.bgColor}
+          sidebar={sidebar}
         >
           {message}
         </BasicButton>

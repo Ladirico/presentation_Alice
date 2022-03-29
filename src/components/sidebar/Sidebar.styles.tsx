@@ -6,10 +6,15 @@ const bounceAnimation = keyframes`${bounceInLeft}`;
 
 export const SidebarWrapper = styled.div`
   width: ${(props: InterfaceSidebarWrapper) =>
-    props.smartView ? (props.showSidebar ? "80%" : "0%") : "30%"};
+    props.smartView ? (props.showSidebar ? "50%" : "0%") : "30%"};
   height: 100%;
   background-color: ${(props: InterfaceSidebarWrapper) => props.bgColor};
-  animation: 2s
-    ${(props: InterfaceSidebarWrapper) =>
-      props.showSidebar ? bounceAnimation : ""};
+  animation: 2s;
+  ${(props: InterfaceSidebarWrapper) =>
+    props.showSidebar ? bounceAnimation : ""};
+  position: ${(props: InterfaceSidebarWrapper) =>
+    props.smartView ? "absolute" : null};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
