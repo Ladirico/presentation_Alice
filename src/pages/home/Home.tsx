@@ -5,8 +5,8 @@ import Button from "../../components/button/button";
 const Home = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
-  const { firstName, lastName, email } = context;
-  console.log(context);
+  const { user } = context;
+  const { firstName, lastName, email, isLogged } = user;
 
   return (
     <div>
@@ -15,9 +15,20 @@ const Home = () => {
       dato {email} per ricordarti ogni giorno, più volte al giorno, quanto ci
       stai sui coglioni
       <Button
-        funcOnClick={() => {
-          setContext({ ...context, isLogged: false });
-        }}
+        funcOnClick={() =>
+          setContext({
+            ...context,
+            user: {
+              userName: context.user.userName,
+              password: context.user.password,
+              email: context.user.email,
+              firstName: context.user.firstName,
+              lastName: context.user.lastName,
+              age: context.user.age,
+              isLogged: isLogged ? false : context.user.isLogged,
+            },
+          })
+        }
         icon="back"
         message="sloggati"
       />

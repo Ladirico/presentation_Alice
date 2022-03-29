@@ -6,14 +6,9 @@ import { SidebarWrapper } from "./Sidebar.styles";
 const Sidebar = () => {
   const starterContext = useContext(SmartphoneView);
   const { context } = starterContext;
-  const {
-    smartView,
-    openSidebar,
-    themePink,
-    themeColored,
-    themeChoose,
-    isLogged,
-  } = context;
+  const { smartView, openSidebar, user, theme } = context;
+  const { isLogged } = user;
+  const { themePink, themeColored, themeChoose } = theme;
   return (
     <>
       {!smartView ? (
@@ -28,23 +23,23 @@ const Sidebar = () => {
               <Link to="/about">About</Link>
               <Link to="/users">Users</Link>
             </>
-          ) : (
-            <></>
-          )}
+          ) : null}
         </SidebarWrapper>
-      ) : openSidebar && isLogged ? (
+      ) : openSidebar ? (
         <SidebarWrapper
           showSidebar={openSidebar}
           smartView={smartView}
           bgColor={themeChoose ? themePink?.c2 : themeColored?.c2}
         >
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/users">Users</Link>
+          {isLogged ? (
+            <>
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/users">Users</Link>
+            </>
+          ) : null}
         </SidebarWrapper>
-      ) : (
-        <></>
-      )}
+      ) : null}
     </>
   );
 };

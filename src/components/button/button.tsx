@@ -11,7 +11,8 @@ import { SmartphoneView } from "../../App";
 const Button = ({ icon, funcOnClick, message, sidebar }: InterfaceButton) => {
   const starterContext = useContext(SmartphoneView);
   const { context } = starterContext;
-  const { themePink, themeColored, themeChoose, smartView } = context;
+  const { theme, smartView } = context;
+  const { themePink, themeColored, themeChoose } = theme;
   const [buttonProp, setButtonProp] = useState<InterfaceButtonProp>({
     src: "",
     bgColor: "",

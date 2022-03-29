@@ -1,35 +1,40 @@
 import { createContext, useEffect, useState } from "react";
 import useWindowDimensions from "./components/hooks/customHook";
 import SinglePage from "./components/singlePage/SinglePage";
-import { InterfaceSmartphoneView, InterfaceTipo } from "./types/types";
+import { InterfaceContext, InterfaceSmartphoneView } from "./types/types";
 
-export const SmartphoneView = createContext<InterfaceTipo>(null!);
+export const SmartphoneView = createContext<InterfaceContext>(null!);
 
 const App = () => {
   const { width } = useWindowDimensions();
   const [context, setContext] = useState<InterfaceSmartphoneView>({
     smartView: false,
     openSidebar: false,
-    themePink: {
-      c1: "#E032FC",
-      c2: "#972DE0",
-      c3: "#3f2772",
-      c4: "#FA3394",
+    theme: {
+      themePink: {
+        c1: "#E032FC",
+        c2: "#972DE0",
+        c3: "#3f2772",
+        c4: "#FA3394",
+      },
+      themeColored: {
+        c1: "#FFC66F",
+        c2: "#2DC3E0",
+        c3: "#3EF832",
+        c4: "#9d19d1",
+      },
+      themeChoose: true,
     },
-    themeColored: {
-      c1: "#FFC66F",
-      c2: "#2DC3E0",
-      c3: "#3EF832",
-      c4: "#9d19d1",
+    user: {
+      userName: "",
+      password: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+      age: 0,
+      isLogged: false,
     },
-    themeChoose: true,
-    firstName: "",
-    lastName: "",
-    email: "",
-    age: 0,
-    isLogged: false,
   });
-
   useEffect(() => {
     width <= 600
       ? setContext({ ...context, smartView: true })

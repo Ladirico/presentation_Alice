@@ -9,7 +9,9 @@ import { PageRouteWrapper } from "./PageRoute.style";
 const PageRoute = () => {
   const starterContext = useContext(SmartphoneView);
   const { context } = starterContext;
-  const { themePink, themeColored, themeChoose, isLogged } = context;
+  const { theme, user } = context;
+  const { themeChoose, themeColored, themePink } = theme;
+  const { isLogged } = user;
   return (
     <PageRouteWrapper bgColor={themeChoose ? themePink?.c4 : themeColored?.c4}>
       {!isLogged ? (

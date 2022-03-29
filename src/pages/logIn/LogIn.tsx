@@ -2,11 +2,11 @@ import { useFormik } from "formik";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { SmartphoneView } from "../../App";
-import emailjs from "@emailjs/browser";
 const LogIn = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
-
+  const { user } = context;
+  const { firstName, lastName, email, isLogged } = user;
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -30,11 +30,15 @@ const LogIn = () => {
     onSubmit: (values) => {
       setContext({
         ...context,
-        lastName: values.lastName,
-        firstName: values.firstName,
-        email: values.email,
-        age: values.age,
-        isLogged: true,
+        user: {
+          userName: context.user.userName,
+          password: context.user.password,
+          lastName: values.lastName,
+          firstName: values.firstName,
+          email: values.email,
+          age: values.age,
+          isLogged: true,
+        },
       });
       // emailjs.send(
       //   "service_pfvk0n3",
@@ -110,9 +114,8 @@ const LogIn = () => {
           <br />
           <br />
         </>
-      ) : (
-        <></>
-      )}
+      ) : null}
+
       <button type="submit">Submit</button>
     </form>
   );

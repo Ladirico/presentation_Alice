@@ -6,8 +6,9 @@ import { InsideNavbar, NavbarWrapper } from "./Navbar.styles";
 const Navbar = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
-  const { smartView, openSidebar, themePink, themeColored, themeChoose } =
-    context;
+  const { smartView, openSidebar, theme } = context;
+  const { themeChoose, themeColored, themePink } = theme;
+  console.log(openSidebar);
   return (
     <NavbarWrapper
       smartView={smartView}
@@ -27,14 +28,8 @@ const Navbar = () => {
               funcOnClick={() =>
                 setContext(
                   openSidebar
-                    ? {
-                        ...context,
-                        openSidebar: false,
-                      }
-                    : {
-                        ...context,
-                        openSidebar: true,
-                      }
+                    ? { ...context, openSidebar: false }
+                    : { ...context, openSidebar: true }
                 )
               }
               icon="menu"
@@ -44,11 +39,14 @@ const Navbar = () => {
         <Button
           icon="switch"
           funcOnClick={() =>
-            setContext(
-              themeChoose
-                ? { ...context, themeChoose: false }
-                : { ...context, themeChoose: true }
-            )
+            setContext({
+              ...context,
+              theme: {
+                themePink: context.theme.themePink,
+                themeChoose: themeChoose ? false : true,
+                themeColored: context.theme.themeColored,
+              },
+            })
           }
         />
       </InsideNavbar>
