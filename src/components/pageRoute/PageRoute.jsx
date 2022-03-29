@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Routes, Switch } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { SmartphoneView } from "../../App";
 import Home from "../../pages/home/Home";

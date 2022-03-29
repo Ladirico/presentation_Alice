@@ -1,7 +1,7 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { SmartphoneView } from "../../App";
 import { SidebarWrapper } from "./Sidebar.styles";
-import { BrowserRouter as Router, Link, useParams } from "react-router-dom";
 
 const Sidebar = () => {
   const starterContext = useContext(SmartphoneView);

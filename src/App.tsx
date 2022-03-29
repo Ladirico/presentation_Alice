@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
 import useWindowDimensions from "./components/hooks/customHook";
 import SinglePage from "./components/singlePage/SinglePage";
 import { InterfaceSmartphoneView, InterfaceTipo } from "./types/types";
