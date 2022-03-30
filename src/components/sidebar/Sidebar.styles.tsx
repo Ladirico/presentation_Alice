@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { bounceInLeft } from "react-animations";
-import { InterfaceSidebarWrapper } from "../../types/types";
+import { InterfaceSidebarWrapper } from "../../types/styledTypes";
 
 const bounceAnimation = keyframes`${bounceInLeft}`;
 

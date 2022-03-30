@@ -4,14 +4,6 @@ interface Wewe {
   color: string;
 }
 
-interface Wewewe {
-  id: boolean;
-  name: "firstName";
-  type: "text";
-  onChange: () => void;
-  onBlur: () => void;
-  value: () => void;
-}
 export const FormWrapper = styled.div`
   width: 95%;
   height: 95%;

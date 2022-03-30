@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { SmartphoneView } from "../../App";
-import Button from "../../components/button/button";
+import Button from "../../components/button/Button";
 
 const Home = () => {
   const starterContext = useContext(SmartphoneView);

@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { useContext } from "react";
 import * as Yup from "yup";
 import { SmartphoneView } from "../../App";
-import Button from "../../components/button/button";
+import Button from "../../components/button/Button";
 import {
   FormStyled,
   FormWrapper,

@@ -1,22 +1,3 @@
-export interface InterfaceButton {
-  icon?: string;
-  funcOnClick?: () => void;
-  message?: string;
-  sidebar?: boolean;
-  type?: "button" | "reset" | "submit" | undefined;
-}
-
-export interface InterfaceBasicButton {
-  link?: boolean;
-  bgColor?: string;
-  sidebar?: boolean;
-  smartiew?: boolean;
-}
-
-export interface InterfaceNavbar {
-  smartphone?: boolean;
-}
-
 export interface InterfaceSmartphoneView {
   smartView: boolean;
   openSidebar?: boolean;
@@ -48,18 +29,4 @@ export interface InterfaceTheme {
 export interface InterfaceContext {
   context: InterfaceSmartphoneView;
   setContext: React.Dispatch<React.SetStateAction<InterfaceSmartphoneView>>;
-}
-
-export interface InterfaceSidebarWrapper {
-  showSidebar?: boolean;
-  bgColor?: string;
-  smartView?: boolean;
-}
-
-export interface InterfacePageRoute {
-  open?: boolean;
-}
-export interface InterfaceButtonProp {
-  src: string;
-  bgColor?: string;
 }

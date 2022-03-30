@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { SmartphoneView } from "../../App";
-import Button from "../button/button";
+import Button from "../button/Button";
 import { InsideNavbar, NavbarWrapper } from "./Navbar.styles";
 
 const Navbar = () => {

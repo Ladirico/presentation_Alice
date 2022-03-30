@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { InterfaceSidebarWrapper } from "../../types/types";
+import { InterfaceSidebarWrapper } from "../../types/styledTypes";
 
 export const PageRouteWrapper = styled.div`
   width: 100%;

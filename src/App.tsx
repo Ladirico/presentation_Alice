@@ -1,7 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import useWindowDimensions from "./components/hooks/customHook";
 import SinglePage from "./components/singlePage/SinglePage";
-import { InterfaceContext, InterfaceSmartphoneView } from "./types/types";
+import {
+  InterfaceContext,
+  InterfaceSmartphoneView,
+} from "./types/componentsTypes";
 
 export const SmartphoneView = createContext<InterfaceContext>(null!);
 
