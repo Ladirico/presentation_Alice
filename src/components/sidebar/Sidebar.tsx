@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SmartphoneView } from "../../App";
 import useAxiosCall from "../hooks/useAxiosCall";

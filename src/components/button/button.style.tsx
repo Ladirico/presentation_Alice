@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {
   InterfaceSmartView,
   InterfaceStyledButton,
-  InterfaceUrlImg,
 } from "../../types/styledTypes";
 
 export const ButtonWithIconAndText = styled.button<InterfaceStyledButton>`

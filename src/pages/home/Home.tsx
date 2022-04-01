@@ -8,7 +8,7 @@ const Home = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
   const { user } = context;
-  const { firstName, lastName, email, isLogged } = user;
+  const { email, isLogged } = user;
   return (
     <div>
       <>
