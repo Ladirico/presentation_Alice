@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SmartphoneView } from "../../App";
+import useAxiosCall from "../hooks/useAxiosCall";
 import { SidebarWrapper } from "./Sidebar.styles";
 
 const Sidebar = () => {
@@ -9,6 +10,9 @@ const Sidebar = () => {
   const { smartView, openSidebar, user, theme } = context;
   const { isLogged } = user;
   const { themePink, themeColored, themeChoose } = theme;
+  const ciao = useAxiosCall("https://jsonplaceholder.typicode.com/users");
+  console.log(ciao);
+
   return (
     <>
       {!smartView ? (

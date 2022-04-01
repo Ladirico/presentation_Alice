@@ -1,19 +1,30 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SmartphoneView } from "../../App";
 import Button from "../../components/button/Button";
 
 const Home = () => {
+  const [state, setState] = useState("");
+  const [state1, setState1] = useState("");
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
   const { user } = context;
   const { firstName, lastName, email, isLogged } = user;
-
   return (
     <div>
-      Benvenuto {firstName} {lastName} sei una grande testa di cazzo e per
-      ricordartelo ti abbiamo iscritto alla newsletter con la mail che ci hai
-      dato {email} per ricordarti ogni giorno, più volte al giorno, quanto ci
-      stai sui coglioni
+      <>
+        <input type="text" onChange={(e) => setState(e.currentTarget.value)} />
+        <label htmlFor="cars">Choose a car:</label>
+        <select
+          name="cars"
+          id="cars"
+          onChange={(e) => setState1(e.currentTarget.value)}
+        >
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </>
       <Button
         funcOnClick={() =>
           setContext({
