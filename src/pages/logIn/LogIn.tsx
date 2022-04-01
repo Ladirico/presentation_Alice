@@ -13,6 +13,8 @@ import {
 const LogIn = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
+  const { theme } = context;
+  const { themeChoose, themePink, themeColored } = theme;
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -28,10 +30,7 @@ const LogIn = () => {
         .max(20, "Must be 20 characters or less")
         .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
-      age: Yup.number()
-        .integer()
-        .default(0)
-        .test("non ho capito", "troppo lungo", (val) => val <= 110),
+      age: Yup.number().min(0, "Min value 0.").max(110, "Max value 110."),
     }),
     onSubmit: (values) => {
       setContext({
@@ -61,76 +60,97 @@ const LogIn = () => {
     },
   });
   return (
-    <FormWrapper>
-      <h1>Login form</h1>
-      <FormStyled onSubmit={formik.handleSubmit}>
-        <SingleInputStyled>
-          <LabelStyled color="black" htmlFor="firstName">
-            First Name
-          </LabelStyled>
-          <InputStyled
-            id="firstName"
-            name="firstName"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.firstName}
-          />
-          {formik.touched.firstName && formik.errors.firstName ? (
-            <LabelStyled color="red">{formik.errors.firstName}</LabelStyled>
-          ) : null}
-        </SingleInputStyled>
-        <br />
-        <br />
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div>{formik.errors.lastName}</div>
-        ) : null}
-        <br />
-        <br />
-        <label htmlFor="email">Email Address</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email}</div>
-        ) : null}
-        <br />
-        <br />
-        {formik.values.firstName ? (
-          <>
-            <label htmlFor="age">Insert Age</label>
-            <input
-              id="age"
-              name="age"
-              type="number"
+    <>
+      <FormWrapper>
+        <h1>Login form</h1>
+        <FormStyled onSubmit={formik.handleSubmit}>
+          <SingleInputStyled>
+            <LabelStyled color="black" htmlFor="firstName">
+              First Name
+            </LabelStyled>
+            <InputStyled
+              id="firstName"
+              name="firstName"
+              type="text"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              value={formik.values.firstName}
             />
-            {formik.touched.age && formik.errors.age ? (
-              <div>{formik.errors.age}</div>
+            {formik.touched.firstName && formik.errors.firstName ? (
+              <LabelStyled
+                color={themeChoose ? themePink?.c2 : themeColored?.c2}
+              >
+                {formik.errors.firstName}
+              </LabelStyled>
             ) : null}
-            <br />
-            <br />
-          </>
-        ) : null}
-
-        <Button type="submit" icon="login" message="Login"></Button>
-      </FormStyled>
-    </FormWrapper>
+          </SingleInputStyled>
+          <SingleInputStyled>
+            <LabelStyled color="black" htmlFor="lastName">
+              Last Name
+            </LabelStyled>
+            <InputStyled
+              id="lastName"
+              name="lastName"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.lastName}
+            />
+            {formik.touched.lastName && formik.errors.lastName ? (
+              <LabelStyled
+                color={themeChoose ? themePink?.c2 : themeColored?.c2}
+              >
+                {formik.errors.lastName}
+              </LabelStyled>
+            ) : null}
+          </SingleInputStyled>
+          <SingleInputStyled>
+            <LabelStyled color="black" htmlFor="email">
+              Email Address
+            </LabelStyled>
+            <InputStyled
+              id="email"
+              name="email"
+              type="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <LabelStyled
+                color={themeChoose ? themePink?.c2 : themeColored?.c2}
+              >
+                {formik.errors.email}
+              </LabelStyled>
+            ) : null}
+          </SingleInputStyled>
+          <SingleInputStyled>
+            {formik.values.firstName ? (
+              <>
+                <LabelStyled color="black" htmlFor="age">
+                  Insert Age
+                </LabelStyled>
+                <InputStyled
+                  id="age"
+                  name="age"
+                  type="number"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.values.age && formik.errors.age ? (
+                  <LabelStyled
+                    color={themeChoose ? themePink?.c2 : themeColored?.c2}
+                  >
+                    {formik.errors.age}
+                  </LabelStyled>
+                ) : null}
+              </>
+            ) : null}
+          </SingleInputStyled>
+          <Button type="submit" icon="login" message="Login"></Button>
+        </FormStyled>
+      </FormWrapper>
+    </>
   );
 };
 export default LogIn;

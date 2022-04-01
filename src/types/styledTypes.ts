@@ -9,6 +9,7 @@ export interface InterfaceButton {
 export interface InterfaceStyledButton {
   color?: string;
   bgColor?: string;
+  border?: string;
 }
 
 export interface InterfaceSmartView {
@@ -28,6 +29,7 @@ export interface InterfaceButtonProp {
   src: string;
   bgColor?: string;
   color?: string;
+  border?: string;
 }
 
 export interface InterfaceUrlImg {

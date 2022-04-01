@@ -8,42 +8,7 @@ const Home = () => {
   const starterContext = useContext(SmartphoneView);
   const { context, setContext } = starterContext;
   const { user } = context;
-  const { email, isLogged } = user;
-  return (
-    <div>
-      <>
-        <input type="text" onChange={(e) => setState(e.currentTarget.value)} />
-        <label htmlFor="cars">Choose a car:</label>
-        <select
-          name="cars"
-          id="cars"
-          onChange={(e) => setState1(e.currentTarget.value)}
-        >
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-      </>
-      <Button
-        funcOnClick={() =>
-          setContext({
-            ...context,
-            user: {
-              userName: context.user.userName,
-              password: context.user.password,
-              email: context.user.email,
-              firstName: context.user.firstName,
-              lastName: context.user.lastName,
-              age: context.user.age,
-              isLogged: isLogged ? false : context.user.isLogged,
-            },
-          })
-        }
-        icon="back"
-        message="sloggati"
-      />
-    </div>
-  );
+  const { firstName, email, isLogged } = user;
+  return <div>benvenuto {firstName}</div>;
 };
 export default Home;

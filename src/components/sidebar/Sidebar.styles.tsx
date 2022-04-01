@@ -7,7 +7,7 @@ const bounceAnimation = keyframes`${bounceInLeft}`;
 export const SidebarWrapper = styled.div`
   width: ${(props: InterfaceSidebarWrapper) =>
     props.smartView ? (props.showSidebar ? "50%" : "0%") : "30%"};
-  height: 100%;
+  height: 89vh;
   background-color: ${(props: InterfaceSidebarWrapper) => props.bgColor};
   animation: 2s;
   ${(props: InterfaceSidebarWrapper) =>

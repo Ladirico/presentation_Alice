@@ -7,7 +7,6 @@ interface Wewe {
 export const FormWrapper = styled.div`
   width: 95%;
   height: 95%;
-  background: yellow;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +23,7 @@ export const SingleInputStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: left;
+  margin-bottom: 10px;
 `;
 
 export const LabelStyled = styled.label<Wewe>`

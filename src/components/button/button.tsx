@@ -19,6 +19,7 @@ const Button = ({ icon, funcOnClick, message, type }: InterfaceButton) => {
   const [buttonProp, setButtonProp] = useState<InterfaceButtonProp>({
     src: "",
     bgColor: "",
+    border: "",
   });
 
   useEffect(() => {
@@ -38,7 +39,8 @@ const Button = ({ icon, funcOnClick, message, type }: InterfaceButton) => {
       case "menu":
         setButtonProp({
           src: menu,
-          bgColor: themeChoose ? themePink?.c1 : themeColored?.c1,
+          border: "unset",
+          bgColor: "transparent",
         });
         break;
       case "login":
@@ -49,6 +51,8 @@ const Button = ({ icon, funcOnClick, message, type }: InterfaceButton) => {
         break;
       case "switch":
         setButtonProp({
+          border: "unset",
+          bgColor: "transparent",
           src: themeChoose ? switchOn : switchOff,
         });
         break;
@@ -64,6 +68,7 @@ const Button = ({ icon, funcOnClick, message, type }: InterfaceButton) => {
     <>
       {smartView ? (
         <ButtonWithIconAndText
+          border={buttonProp.border}
           onClick={funcOnClick}
           bgColor={buttonProp.bgColor}
           color={buttonProp.color}
@@ -73,6 +78,7 @@ const Button = ({ icon, funcOnClick, message, type }: InterfaceButton) => {
         </ButtonWithIconAndText>
       ) : icon ? (
         <ButtonWithIconAndText
+          border={buttonProp.border}
           onClick={funcOnClick}
           bgColor={buttonProp.bgColor}
           color={buttonProp.color}
@@ -91,43 +97,5 @@ const Button = ({ icon, funcOnClick, message, type }: InterfaceButton) => {
       )}
     </>
   );
-  // <>
-  // {
-  /* {icon ? (
-        buttonProp.src === switchOff || buttonProp.src === switchOn ? (
-          <BasicButton
-            type={type}
-            link={true}
-            onClick={funcOnClick}
-            bgColor={buttonProp.bgColor}
-            sidebar={sidebar}
-          >
-            <BasicImg src={buttonProp.src} smartView={smartView} />
-            {message}
-          </BasicButton>
-        ) : (
-          <BasicButton
-            type={type}
-            link={false}
-            onClick={funcOnClick}
-            bgColor={buttonProp.bgColor}
-            sidebar={sidebar}
-          >
-            <BasicImg src={buttonProp.src} smartView={smartView} />
-            {!smartView ? message : null}
-          </BasicButton>
-        )
-      ) : (
-        <BasicButton
-          type={type}
-          link={true}
-          onClick={funcOnClick}
-          bgColor={buttonProp.bgColor}
-          sidebar={sidebar}
-        >
-          {message}
-        </BasicButton>
-      )}
-    </> */
 };
 export default Button;
