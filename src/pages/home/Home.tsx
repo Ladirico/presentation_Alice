@@ -1,14 +1,30 @@
-import { useContext, useState } from "react";
-import { SmartphoneView } from "../../App";
-import Button from "../../components/button/Button";
+import { useEffect, useState } from "react";
+import { getAll, getStudenteFromMatricola } from "../../axios";
+import { InterfaceRootObject } from "../../types/axiosTypes";
 
 const Home = () => {
-  const [state, setState] = useState("");
-  const [state1, setState1] = useState("");
-  const starterContext = useContext(SmartphoneView);
-  const { context, setContext } = starterContext;
-  const { user } = context;
-  const { firstName, email, isLogged } = user;
-  return <div>benvenuto {firstName}</div>;
+  const [data, setData] = useState<InterfaceRootObject>();
+  useEffect(() => {
+    getAll().then((resp) => setData(resp));
+  }, []);
+  return (
+    <>
+      {data ? (
+        data.studente.map((el, index) => (
+          <div
+            onClick={() =>
+              getStudenteFromMatricola(el.matricola).then((resp) =>
+                console.log(resp)
+              )
+            }
+          >
+            {el.nome}
+          </div>
+        ))
+      ) : (
+        <>weweeeeeeee</>
+      )}
+    </>
+  );
 };
 export default Home;
